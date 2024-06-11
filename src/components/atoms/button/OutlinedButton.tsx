@@ -1,27 +1,28 @@
-'use client'
 import Link from 'next/link'
 import React from 'react'
 import { Button, useTheme } from '@mui/material'
 
 interface ButtonProps {
-	text: string
-	href?: string
-	newTab?: boolean | undefined
+	label: string
+	size?: 'small' | 'medium' | 'large'
 	color?: 'inherit' | 'primary' | 'secondary' | 'warning' | 'info' | 'success'
-	onClick?: () => void
 	startIcon?: React.ReactNode
 	endIcon?: React.ReactNode
+	href?: string
+	newTab?: boolean
 	disabled?: boolean
+	onClick?: () => void
 }
 
 export const DefaultButton: React.FC<ButtonProps> = (props) => {
 	const {
-		text,
+		label,
+		size = 'medium',
 		color = 'primary',
-		onClick,
 		startIcon,
 		endIcon,
 		disabled,
+		onClick
 	} = props
 
 	const theme = useTheme()
@@ -43,12 +44,12 @@ export const DefaultButton: React.FC<ButtonProps> = (props) => {
 	return (
 		<Button
 			variant='outlined'
+			size={size}
 			color={color}
+			startIcon={startIcon && startIcon}
+			endIcon={endIcon && endIcon}
+			disabled={disabled && disabled ? true : false}
 			onClick={onClick}
-			startIcon={startIcon}
-			endIcon={endIcon}
-			disabled={disabled ? true : false}
-			size='small'
 			sx={{
 				px: '1.5em',
 				fontWeight: 'bold',
@@ -63,7 +64,7 @@ export const DefaultButton: React.FC<ButtonProps> = (props) => {
 				},
 			}}
 		>
-			{text}
+			{label}
 		</Button>
 	)
 }

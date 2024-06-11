@@ -1,22 +1,25 @@
-'use client'
 import Link from 'next/link';
 import React from 'react';
 import {IconButton as Button} from '@mui/material';
 
 interface ButtonProps {
+  label?: string
   icon: React.ReactNode
-  href?: string
-  newTab?: boolean | undefined
+  size?: 'small'|'medium'|'large'
   color?: 'inherit' | 'primary' | 'secondary' | 'warning' | 'info' | 'success'
+  href?: string
+  newTab?: boolean
   disabled?: boolean
   onClick?: () => void
 }
 
 export const DefaultButton: React.FC<ButtonProps> = (props) => {
-  const {icon, color = 'primary', disabled, onClick} = props
+  const {label, icon, size = 'medium', color = 'primary', disabled, onClick} = props
 
   return (
     <Button
+    aria-label={label}
+      size={size}
       color={color}
       disabled={disabled ? true : false}
       onClick={onClick}>
@@ -30,8 +33,8 @@ export const IconButton: React.FC<ButtonProps> = (props) => {
 	return href ? (
 		<Link
 			href={href}
-			target={newTab ? '_blank' : undefined}
-			rel={newTab ? 'noopener noreferrer' : undefined}
+			target={newTab && newTab ? '_blank' : ''}
+			rel={newTab && newTab ? 'noopener noreferrer' : ''}
 		>
 			<DefaultButton {...props} />
 		</Link>

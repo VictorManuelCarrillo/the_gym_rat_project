@@ -1,25 +1,45 @@
 import { createTheme } from '@mui/material/styles'
+import '@fontsource/anton'
+// Anton, sans-serif
+import'@fontsource/dm-mono'
+// Dm mono, monospace
+import'@fontsource-variable/urbanist'
+// Urbanist Variable, sans-serif
+
 
 export const primaryDarkTheme = createTheme({
+	typography: {
+		h1: {
+			fontFamily: 'Anton, sans-serif'
+		}
+	},
 	palette: {
-		mode: 'light',
+		mode: 'dark',
+		common: {
+			black: '#000',
+			white: '#fff'
+		},
 		primary: {
-			main: '#4ef00',
+			main: '#8BD5E4',
 		},
 		secondary: {
-			main: '#2196f3',
+			main: '#EEC718',
 		},
 		warning: {
-			main: '#f4511e',
+			main: '#F54900',
 		},
 		info: {
-			main: '#9c27b0',
+			main: '#9635AC',
 		},
 		success: {
-			main: '#00e676',
+			main: '#63CF48',
+		},
+		highlight: {
+			yellow: 'yellow'
 		},
 		background: {
-			default: '#e3e3e3',
+			default: '#152639',
+			paper: '485A60'
 		},
 	},
 })

@@ -1,41 +1,42 @@
-'use client'
 import Link from 'next/link'
 import React from 'react'
 import { Button } from '@mui/material'
 
 interface ButtonProps {
-	text: string
-	href?: string
-	newTab?: boolean | undefined
+	label: string
+	size?: 'small' | 'medium' | 'large'
 	color?: 'inherit' | 'primary' | 'secondary' | 'warning' | 'info' | 'success'
-	onClick?: () => void
 	startIcon?: React.ReactNode
 	endIcon?: React.ReactNode
+	href?: string
+	newTab?: boolean
 	disabled?: boolean
+	onClick?: () => void
 }
 
 export const DefaultButton: React.FC<ButtonProps> = (props) => {
 	const {
-		text,
+		label,
+		size = 'medium',
 		color = 'primary',
-		onClick,
 		startIcon,
 		endIcon,
 		disabled,
+		onClick,
 	} = props
 
 	return (
 		<Button
 			variant='text'
+			size={size}
 			color={color}
+			startIcon={startIcon && startIcon}
+			endIcon={endIcon && endIcon}
+			disabled={disabled && disabled ? true : false}
 			onClick={onClick}
-			startIcon={startIcon}
-			endIcon={endIcon}
-			disabled={disabled ? true : false}
-			size='small'
-			sx={{ px: '1.5em', m: '0.5em', borderRadius: '2.5em' }}
+			sx={{ px: '1.5em', m: '0.5em' }}
 		>
-			{text}
+			{label}
 		</Button>
 	)
 }
@@ -45,8 +46,8 @@ export const TextButton: React.FC<ButtonProps> = (props) => {
 	return href ? (
 		<Link
 			href={href}
-			target={newTab ? '_blank' : undefined}
-			rel={newTab ? 'noopener noreferrer' : undefined}
+			target={newTab ? '_blank' : ''}
+			rel={newTab ? 'noopener noreferrer' : ''}
 		>
 			<DefaultButton {...props} />
 		</Link>
