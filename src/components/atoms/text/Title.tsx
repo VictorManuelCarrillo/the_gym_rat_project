@@ -7,7 +7,6 @@ import { Property } from 'csstype'
 interface TitleProps {
 	text: string
 	type?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
-	color?: 'white' | 'black'
 	align?: Property.TextAlign
 	highlighted?: boolean
 	highlightColor?: string
@@ -15,11 +14,10 @@ interface TitleProps {
 }
 
 const DefaultTitle: React.FC<TitleProps> = (props) => {
-	const { text, type = 'h1', color = 'white', align, sx } = props
+	const { text, type = 'h1', align, sx } = props
 	return (
 		<Typography
 			variant={type}
-			color={color}
 			sx={{
 				fontFamily: 'anton, sans-serif',
 				textTransform: 'uppercase',

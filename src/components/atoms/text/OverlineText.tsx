@@ -5,18 +5,16 @@ import { SxProps, Theme } from '@mui/system'
 
 interface OverlineTextProps {
 	text: string
-	color?: 'white' | 'black'
 	highlighted?: boolean
 	highlightColor?: string
 	sx?: SxProps<Theme>
 }
 
 const DefaultOverlineText: React.FC<OverlineTextProps> = (props) => {
-	const { text, color = 'white', sx } = props
+	const { text, sx } = props
 	return (
 		<Typography
 			variant={'overline'}
-			color={color}
 			sx={{
 				fontFamily: 'Dm mono, monospace',
 				...sx,

@@ -6,18 +6,16 @@ import { SxProps, Theme } from '@mui/system'
 interface SubtitleProps {
 	text: string
 	type?: 'subtitle1' | 'subtitle2'
-	color?: 'white' | 'black'
 	highlighted?: boolean
 	highlightColor?: string
 	sx?: SxProps<Theme>
 }
 
 const DefaultSubtitle: React.FC<SubtitleProps> = (props) => {
-	const { text, type = 'subtitle1', color = 'white', sx } = props
+	const { text, type = 'subtitle1', sx } = props
 	return (
 		<Typography
 			variant={type}
-			color={color}
 			sx={{
 				fontFamily: 'Dm mono, monospace',
 				textTransform: 'uppercase',

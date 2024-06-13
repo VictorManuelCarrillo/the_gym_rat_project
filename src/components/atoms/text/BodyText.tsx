@@ -7,7 +7,6 @@ import { Property } from 'csstype'
 interface BodyTextProps {
 	text: string
 	type?: 'body1' | 'body2'
-	color?: 'white' | 'black'
 	align?: Property.TextAlign
 	highlighted?: boolean
 	highlightColor?: string
@@ -15,11 +14,10 @@ interface BodyTextProps {
 }
 
 const DefaultBodyText: React.FC<BodyTextProps> = (props) => {
-	const { text, type = 'body1', color = 'white', align, sx } = props
+	const { text, type = 'body1', align, sx } = props
 	return (
 		<Typography
 			variant={type}
-			color={color}
 			sx={{
 				fontFamily: 'Dm mono, monospace',
 				fontWeight: 'bold',

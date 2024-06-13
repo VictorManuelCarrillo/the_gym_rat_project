@@ -13,7 +13,13 @@ export const ImageCard: React.FC<ImageCardProps> = (props) => {
 	const { imageUrl, title, description } = props
 
 	return (
-		<Box sx={{ position: 'relative', width: { md: '30vw', margin: '0 auto' } }}>
+		<Box
+			sx={{
+				position: 'relative',
+				width: { xs: '80vw', sm: '60vw', md: '40vw', lg:'30vw', xl: '20vw' },
+				margin: '0 auto'
+			}}
+		>
 			<Card
 				sx={{ marginTop: '4em' }}
 				elevation={4}
@@ -38,12 +44,10 @@ export const ImageCard: React.FC<ImageCardProps> = (props) => {
 						text={title}
 						type={'h4'}
 						align='center'
-						color='black'
 					/>
 					<BodyText
 						text={description}
 						align='justify'
-						color='black'
 						sx={{
 							display: '-webkit-box',
 							WebkitLineClamp: 3,

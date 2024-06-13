@@ -5,18 +5,16 @@ import { SxProps, Theme } from '@mui/system'
 
 interface CaptionTextProps {
 	text: string
-	color?: 'white' | 'black'
 	highlighted?: boolean
 	highlightColor?: string
 	sx?: SxProps<Theme>
 }
 
 const DefaultCaptionText: React.FC<CaptionTextProps> = (props) => {
-	const { text, color = 'white', sx } = props
+	const { text, sx } = props
 	return (
 		<Typography
 			variant={'caption'}
-			color={color}
 			sx={{
 				fontFamily: 'Dm mono, monospace',
         fontWeight: 'bold',
