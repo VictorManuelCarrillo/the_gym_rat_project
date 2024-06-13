@@ -2,11 +2,7 @@ import { createTheme } from '@mui/material/styles'
 
 export const primaryLightTheme = createTheme({
 	palette: {
-		mode: 'dark',
-		common: {
-			black: '#000',
-			white: '#fff'
-		},
+		mode: 'light',
 		primary: {
 			main: '#FFFFFF',
 		},
@@ -24,7 +20,13 @@ export const primaryLightTheme = createTheme({
 		},
 		background: {
 			default: '#ADB6BC',
-			paper: '#C8D4D7'
+			paper: '#C8D4D7',
+		},
+		highlight: {
+			yellow: 'yellow',
 		},
 	},
+	shape: {
+		borderRadius: 8
+	}
 })
