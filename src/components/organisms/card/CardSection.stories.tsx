@@ -12,6 +12,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
 	args: {
+		sectionTitle: '¡elige tu favorito y a entrenar!',
 		cards: [
 			{
 				title: 'Hola 1',
