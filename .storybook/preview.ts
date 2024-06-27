@@ -1,9 +1,6 @@
 import type { Preview } from "@storybook/react";
-
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import { withThemeFromJSXProvider } from '@storybook/addon-themes';
-
-/* TODO: update import for your custom Material UI themes */
 import { themes } from '../src/themes';
 
 const preview: Preview = {
@@ -15,18 +12,15 @@ const preview: Preview = {
       },
     },
   },
-
   decorators: [withThemeFromJSXProvider({
     GlobalStyles: CssBaseline,
     Provider: ThemeProvider,
     themes: {
-      // Provide your custom themes here
       light: themes.primaryLight,
       dark: themes.primaryDark,
     },
     defaultTheme: 'light',
   })],
-
   globalTypes: {
     theme: {
       name: 'Theme',

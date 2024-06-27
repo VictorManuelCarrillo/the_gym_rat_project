@@ -11,7 +11,7 @@ interface ButtonProps {
 	href?: string
 	newTab?: boolean
 	disabled?: boolean
-	onClick?: () => void
+	onClick?: (event: any) => void
 }
 
 export const DefaultButton: React.FC<ButtonProps> = (props) => {
